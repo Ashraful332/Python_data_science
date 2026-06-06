@@ -1,14 +1,14 @@
 # Data Science With Python
 
 ## Technology Used
-```bash
+<!-- ```bash
 pandas
 matplotlib
 sklearn
 joblib
 dask
 streamlit
-```
+``` -->
 
 - pandas
 - matplotlib
