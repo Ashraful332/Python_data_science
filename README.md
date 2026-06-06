@@ -10,6 +10,13 @@ dask
 streamlit
 ```
 
+- pandas
+- matplotlib
+- sklearn
+- joblib
+- dask
+- streamlit
+
 ## start project
 To start the venv 
 ```bash
