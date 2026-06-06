@@ -1,5 +1,15 @@
 # Data Science With Python
 
+## Technology Used
+```bash
+pandas
+matplotlib
+sklearn
+joblib
+dask
+streamlit
+```
+
 ## start project
 To start the venv 
 ```bash
