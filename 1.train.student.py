@@ -31,20 +31,6 @@ import joblib
 
 df = pd.read_csv("data/college_student_placement_dataset.csv")
 
-def Graph(df):
-    # CGPA/Placement Graph
-    plt.title("CGPA/Placement Graph Example")
-    plt.scatter(df['CGPA'],df['Placement'])
-    plt.xlabel("CGPA")
-    plt.ylabel("Placement")
-    plt.savefig(
-        "data/graph/graph.cgpa-placement.2.png",
-        dpi=300
-    )
-
-
-# Graph(df)
-
 
 # =========================
 # TRAIN MODEL
