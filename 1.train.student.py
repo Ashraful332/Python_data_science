@@ -22,7 +22,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LogisticRegression
+import joblib
 
 # =========================
 # LOAD CSV
@@ -49,8 +50,19 @@ def Graph(df):
 # TRAIN MODEL
 # =========================
 
+# convert Placement Yes/No into 1/0
+df["Placement"] = df["Placement"].map({
+    "No": 0,
+    "Yes": 1
+})
+
+# convert Internship Experience Yes/No into 1/0
+df["Internship_Experience"] = df["Internship_Experience"].map({
+    "No": 0,
+    "Yes": 1
+})
+
 X = df[[
-    "College_ID",
     "IQ",
     "Prev_Sem_Result",
     "CGPA",
@@ -59,9 +71,30 @@ X = df[[
     "Extra_Curricular_Score",
     "Communication_Skills",
     "Projects_Completed",
-    "Placement",
 ]]
 
 
+Y = df["Placement"]
 
+
+# Split Data
+X_train,X_test,Y_train,Y_test = train_test_split(
+    X,Y,test_size=0.2,random_state=42
+)
+
+# Set Model
+model = LogisticRegression(max_iter=5000)
+
+# Train Model
+model.fit(X_train, Y_train)
+
+print("Training Complete!")
+
+# =========================
+# SAVE MODEL
+# =========================
+
+joblib.dump(model, "student_placement_model.pkl")
+
+print("Model saved!")
 
